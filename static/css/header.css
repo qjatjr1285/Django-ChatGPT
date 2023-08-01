@@ -1,0 +1,23 @@
+/* header css */
+.header {
+    height: 50px;
+    background: rgba(30, 90, 253, 0.883);
+    opacity: 0.8;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+}
+
+ul {
+    display: flex;
+    gap: 15px;
+}
+
+/* //header css */

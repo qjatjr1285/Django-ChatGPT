@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+# Auth user
+AUTH_USER_MODEL = 'user.User'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shoebox',
+    'user',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -69,6 +75,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+# REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASS': {
+        'rest_framework.throttling.AnnoRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    },
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/hour', # sec, min, hour, day
+        'user': '20/hour',
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
